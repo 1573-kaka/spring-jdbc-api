@@ -21,6 +21,6 @@ public class TestBook {
         book.setTitle("计算机");
         book.setDesc("操作系统");
         book.setContent("管理计算机硬件与软件资源的计算机程序");
-        bookService.addBook(book);
+        bean.addBook(book);
     }
 }
