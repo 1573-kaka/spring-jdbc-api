@@ -21,12 +21,15 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public void updateBook(Book book) {
-        String sql = "update ";
+        String sql = "update books set title=?, desc=?, content=? where id=?";
+        int result = jdbcTemplate.update(sql, book.getTitle(), book.getDesc(), book.getContent(), book.getId());
+        System.out.println("result = " + result);
     }
 
     @Override
     public void deleteById(String id) {
-        String sql = "delete ";
-
+        String sql = "delete from books where id = ?";
+        int result = jdbcTemplate.update(sql, id);
+        System.out.println("result = " + result);
     }
 }
