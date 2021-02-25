@@ -18,4 +18,15 @@ public class BookDaoImpl implements BookDao {
         int result = jdbcTemplate.update(sql, book.getId(), book.getTitle(), book.getDesc(), book.getContent());
         System.out.println("result = " + result);
     }
+
+    @Override
+    public void updateBook(Book book) {
+        String sql = "update ";
+    }
+
+    @Override
+    public void deleteById(String id) {
+        String sql = "delete ";
+
+    }
 }
