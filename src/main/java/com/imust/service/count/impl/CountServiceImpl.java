@@ -4,11 +4,16 @@ import com.imust.dao.count.CountDao;
 import com.imust.service.count.CountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service(value = "countService")
-@Transactional(propagation = Propagation.REQUIRED)  // 默认也是这个
+@Transactional(
+        timeout = -1,
+        propagation = Propagation.REQUIRED,
+        isolation = Isolation.REPEATABLE_READ,
+        readOnly = false)  // 默认也是这个
 public class CountServiceImpl implements CountService {
     @Autowired
     private CountDao countDao;
