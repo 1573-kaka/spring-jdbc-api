@@ -12,9 +12,6 @@ import java.util.List;
 
 public class TestBook {
 
-    @Autowired
-    private BookService bookService;
-
     ApplicationContext ac = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
     BookService bean = ac.getBean("bookService", BookService.class);
 
